@@ -4,7 +4,6 @@ intro_title = '''
 |   Portfolio  |
 +--------------+\n\n
 For help type: help
-
 '''
 
 large_line = '-' * 64
@@ -20,7 +19,7 @@ download      -   Download video with url
 
 open website  -   Open website with all videos downloaded
 
-finish/close  -   End program
+exit          -   End program
 
 help          -   Help menu
 '''
