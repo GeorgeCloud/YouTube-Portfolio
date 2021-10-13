@@ -1,12 +1,12 @@
 from pytube import YouTube
 from docstrings import *
 from json import dump
+from subprocess import call
 
-data = {}
-data['videos'] = []
+data = {'videos': []}
 resource_folder = f'../resources'
 videos_file_path = f'{resource_folder}/my_videos'
-video_text_file_path = f'{resource_folder}/resources/video_data.txt'
+video_text_file_path = f'{resource_folder}/video_data.txt'
 
 def select(option):
     if option in '':
@@ -17,8 +17,8 @@ def select(option):
         download_video(video_url, file_name)
 
     elif 'open' in option:
-        print(f'{YELLOW}Opening index.html{ENDC}')
-        # TODO: LOAD FILE HERE
+        print(f'{YELLOW}Opening your music library{ENDC}')
+        call(['open', '../index.html'])
 
     elif option == 'exit':
         return 'exit'
@@ -35,6 +35,7 @@ def append_video_to_json(youtube_video, date=''):
     data['videos'].append({
         'file_name': file_name,
         'file_path': f'./images/{file_name}',
+        'file_img_url': youtube_video.thumbnail_url,
         # 'date': 'time_stamp',
     })
 
@@ -62,7 +63,7 @@ def download_video(video_url, file_name):
         if file_name:
             youtube_video.title = file_name
 
-        youtube_video.streams.first().download(output_path=videos_file_path)
+        youtube_video.streams.filter(progressive=True, file_extension='mp4').first().download(output_path=videos_file_path)
 
         append_video_to_json(youtube_video)
     except:
