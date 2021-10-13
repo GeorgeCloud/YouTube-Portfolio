@@ -1,15 +1,171 @@
-.item-0 {
-  display: flex;
-  flex-direction: column;
-  /* background-color: rgb(241, 243, 244); */
+body {
+  background-color: lightblue;
+  font-family: courier;
+}
+
+figcaption {
+  font-size: .9rem;
 }
 
 audio {
   height: 50px;
   width: 200px;
+  padding-left: 12.5%;
 }
 
 .thumbnail {
   height: 200px;
-  width: 200px;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.flex-here {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+figure {
+  margin: 0;
+  height: 300px;
+  width: 100%;
+  border: solid 1px;
+  padding-top: 0;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgb(241, 243, 244);
+}
+
+.item-player-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+figure img {
+  width: 15rem;
+  height: 10rem;
+}
+
+figure figcaption {
+  padding: 10px 0;
+
+  text-align: center;
+}
+
+figure button {
+  display: flex;
+  align-self: flex-end;
+  margin-right: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+form p {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+form input {
+  display: inline-block;
+  margin-right: 1rem;
+  height: 1rem;
+}
+
+form button {
+  margin-right: 0.1rem;
+}
+
+#navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-content {
+  width: 1200px;
+  margin: auto;
+}
+
+#shop-items {
+  padding-left: 0px;
+  min-width: 100%;
+
+  display: grid;
+  grid-gap: 3rem;
+  grid-column: column;
+  /* min-width: 925px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "item-1        item-2  item-3  item-4"
+                       "item-5        item-6  item-7  item-8"
+                       "item-9        item-10 item-11 item-12"
+                       "qty-and-total cart    cart    cart";
+}
+
+.gif {
+  width: 100%;
+}
+
+.item-1 {
+  grid-area: "item-1";
+}
+
+.item-2 {
+  grid-area: item-2;
+}
+
+.item-3 {
+  grid-area: item-3;
+}
+
+.item-4 {
+  grid-area: item-4;
+}
+
+.item-5 {
+  grid-area: item-5;
+}
+
+.item-6 {
+  grid-area: item-6;
+}
+
+.item-7 {
+  grid-area: item-7;
+}
+
+.item-8 {
+  grid-area: item-8;
+}
+
+.item-9 {
+  grid-area: item-9;
+}
+
+.item-10 {
+  grid-area: item-10;
+}
+
+.item-11 {
+  grid-area: item-11;
+}
+
+.item-12 {
+  grid-area: item-12;
 }

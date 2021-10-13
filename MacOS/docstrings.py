@@ -19,7 +19,7 @@ download      -   Download video with url
 
 open website  -   Open website with all videos downloaded
 
-exit          -   End program
-
 help          -   Help menu
+
+exit          -   End program
 '''

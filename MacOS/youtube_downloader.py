@@ -1,12 +1,13 @@
 from pytube import YouTube
+# from subprocess import call
 from docstrings import *
 from json import dump
-from subprocess import call
+import webbrowser
 
 data = {'videos': []}
 resource_folder = f'../resources'
 videos_file_path = f'{resource_folder}/my_videos'
-video_text_file_path = f'{resource_folder}/video_data.txt'
+video_text_file_path = f'{resource_folder}/video_data.json'
 
 def select(option):
     if option in '':
@@ -18,7 +19,8 @@ def select(option):
 
     elif 'open' in option:
         print(f'{YELLOW}Opening your music library{ENDC}')
-        call(['open', '../index.html'])
+        webbrowser.open('http://127.0.0.1:3000')
+        # call(['open', '../index.html'])
 
     elif option == 'exit':
         return 'exit'
@@ -34,7 +36,7 @@ def append_video_to_json(youtube_video, date=''):
 
     data['videos'].append({
         'file_name': file_name,
-        'file_path': f'./images/{file_name}',
+        'file_path': f'./resources/my_videos/{file_name}.mp4',
         'file_img_url': youtube_video.thumbnail_url,
         # 'date': 'time_stamp',
     })
@@ -54,7 +56,6 @@ def get_url_and_name():
     file_name = input(f'{YELLOW}Custom video title(enter to give default title): {ENDC}')
 
     return (video_url, file_name)
-
 
 def download_video(video_url, file_name):
     try:
