@@ -9,22 +9,7 @@ async function loadData() {
   return json
 }
 
-// <figure>
-//   <img class="thumbnail" src="https://i.ytimg.com/vi/CBvNfKgzu14/sddefault.jpg" alt="">
-//   <div class="item-player-desc">
-//     <figcaption>JUICE WRLD — Burn (official lyrics) unreleased</figcaption>
-//     <audio controls>
-//       <source src="./resources/my_videos/LD.mp4" type="audio/mp4">
-//       Your browser does not support the audio element.
-//     </audio>
-//   </div>
-// </figure>
-//
-// li
-//   figure
-//     div - missing
-//       img
-//       p
+// TODO: On change in file update
 
 loadData().then(data => {
   for (let i = 0; i < data['videos'].length; i += 1){
@@ -51,12 +36,17 @@ loadData().then(data => {
     figcation_decr.innerText = currentItem.file_name;
     div.appendChild(figcation_decr);
 
-    const audio_tag = document.createElement('audio')
+    const audio_tag = document.createElement('audio');
     audio_tag.controls = true;
     div.appendChild(audio_tag);
 
-
     const audio_source = document.createElement('source');
+    // let newPath = ""
+    // console.log(currentItem.file_path)
+    // currentItem.file_path.forEach((item, i) => {
+    //   console.log(item)
+    // });
+
     audio_source.src = currentItem.file_path;
     audio_source.type = "audio/mp4";
     audio_tag.appendChild(audio_source);
