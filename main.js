@@ -41,24 +41,8 @@ loadData().then(data => {
     div.appendChild(audio_tag);
 
     const audio_source = document.createElement('source');
-    // let newPath = ""
-    // console.log(currentItem.file_path)
-    // currentItem.file_path.forEach((item, i) => {
-    //   console.log(item)
-    // });
-
     audio_source.src = currentItem.file_path;
     audio_source.type = "audio/mp4";
     audio_tag.appendChild(audio_source);
-
-    // const button = document.createElement('button');
-    // button.id = data[i].name;
-    // button.dataset.price = data[i].price;
-    // button.className = "add-to-cart";
-    // button.innerHTML = "Add to Cart";
-    // figure.appendChild(button);
   }
-  // debugger;
-  // do something with json data here...
-  // console.log(data)
 })

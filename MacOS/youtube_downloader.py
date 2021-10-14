@@ -37,11 +37,9 @@ def select(option):
 def append_video_to_json(youtube_video, date=''):
     file_name = youtube_video.title
 
-
-
     data['videos'].append({
         'file_name': file_name,
-        'file_path': f'./resources/my_videos/{"".join([c for c in filename if c.isalpha() or c.isdigit() or c==' ']).rstrip()}.mp4',
+        'file_path': f"./resources/my_videos/{''.join([c for c in file_name if c.isalpha() or c.isdigit() or c in '(-) '])}.mp4",
         'file_img_url': youtube_video.thumbnail_url, # make available offline | stretch
         # 'date': 'time_stamp',
     })
@@ -71,9 +69,7 @@ def download_video(video_url, file_name):
 
         youtube_video.streams.filter(progressive=True, file_extension='mp4').first().download(output_path=videos_file_path)
 
-        # sleep(5) # remove force sleep / either add while(try/except) or complete_callback function
-
-        # import pdb; pdb.set_trace()
+        # Swap to different live-server; refresh should happen after this
         append_video_to_json(youtube_video)
     except:
         print(f'{RED}[*] Video was not able to be downloaded{ENDC}')
