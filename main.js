@@ -1,6 +1,3 @@
-// import data from './resources/video_data.js';
-
-const itemsCart = [];
 const ul_list = document.getElementById("shop-items");
 
 async function loadData() {
@@ -8,8 +5,6 @@ async function loadData() {
   const json = await res.json()
   return json
 }
-
-// TODO: On change in file update
 
 loadData().then(data => {
   for (let i = 0; i < data['videos'].length; i += 1){
@@ -21,13 +16,11 @@ loadData().then(data => {
     const figure = document.createElement('figure');
     newLi.appendChild(figure);
 
-    // Image Thumbnail
     const img = document.createElement('img');
     img.className = `thumbnail item-${i}`;
     img.src = currentItem.file_img_url;
     figure.appendChild(img);
 
-    // Newly added
     const div = document.createElement('div');
     div.className = "item-player-desc";
     figure.appendChild(div);

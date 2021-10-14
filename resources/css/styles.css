@@ -1,6 +1,39 @@
 body {
-  background-color: lightblue;
-  font-family: courier;
+  background-color: rgb(23, 67, 129);
+  font-family: 'Nanum Gothic', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.box-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-right: 50px;
+  margin-bottom: 60px;
+}
+
+.box-2 {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 500px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 500px;
 }
 
 figcaption {
@@ -13,13 +46,39 @@ audio {
   padding-left: 12.5%;
 }
 
+.link {
+  color: white;
+  text-decoration: none;
+}
+
 .thumbnail {
   height: 200px;
   width: 100%;
 }
 
-h1 {
-  text-align: center;
+.title {
+  color: white;
+  font-size: 35px;
+  line-height: 85px;
+  padding-left: 8%;
+}
+
+.title h1, h2 {
+  margin: 0;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("../images/cover.png");
+  background-repeat:no-repeat;
+  background-size:cover;
+  height: 47vh;
+
+  border-bottom-style: solid;
+  border-color: white;
+  border-width: medium;
 }
 
 a {
@@ -40,7 +99,7 @@ figure {
   margin: 0;
   height: 300px;
   width: 100%;
-  border: solid 1px;
+  border: white solid 5px;
   padding-top: 0;
   padding-bottom: 1rem;
   display: flex;
@@ -99,6 +158,7 @@ form button {
 }
 
 .main-content {
+  padding-top: 50px;
   width: 1200px;
   margin: auto;
 }
@@ -110,12 +170,10 @@ form button {
   display: grid;
   grid-gap: 3rem;
   grid-column: column;
-  /* min-width: 925px; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "item-1        item-2  item-3  item-4"
-                       "item-5        item-6  item-7  item-8"
-                       "item-9        item-10 item-11 item-12"
-                       "qty-and-total cart    cart    cart";
+  grid-template-areas: "item-1 item-2  item-3  item-4"
+                       "item-5 item-6  item-7  item-8"
+                       "item-9 item-10 item-11 item-12";
 }
 
 .gif {
