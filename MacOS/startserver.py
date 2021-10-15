@@ -1,7 +1,6 @@
-from os import system, getpid
+from os import system
 
 live_server_port = 9999
-live_server_pid = getpid()
 
 # Start live-server
 system(f"live-server -p {live_server_port} ../")

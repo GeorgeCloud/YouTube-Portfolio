@@ -3,12 +3,12 @@ from docstrings import *
 from json import dump
 import webbrowser
 
-from startserver import system, live_server_port, live_server_pid
-
 data = {'videos': []}
 resource_folder = f'../resources'
 videos_file_path = f'{resource_folder}/my_videos'
 video_text_file_path = f'{resource_folder}/video_data.json'
+
+live_server_port = 9999
 
 def select(option):
     if option in '':
@@ -22,12 +22,6 @@ def select(option):
         print(f'{YELLOW}Opening your music library{ENDC}')
         webbrowser.open(f'http://127.0.0.1:{live_server_port}')
 
-    elif option == 'exit':
-        # safely kill live-server
-        system(f"kill -TSTP {live_server_pid}")
-        live_server_pid
-        return 'exit'
-
     elif option in 'help':
         print(help)
 
@@ -39,7 +33,7 @@ def append_video_to_json(youtube_video, date=''):
 
     data['videos'].append({
         'file_name': file_name,
-        'file_path': f"./resources/my_videos/{''.join([c for c in file_name if c.isalpha() or c.isdigit() or c in '(-) '])}.mp4",
+        'file_path': f"./resources/my_videos/{''.join([c for c in file_name if c.isalpha() or c.isdigit() or c in '-()[]'])}.mp4",
         'file_img_url': youtube_video.thumbnail_url, # make available offline | stretch
         # 'date': 'time_stamp',
     })
@@ -82,8 +76,12 @@ def main():
     while True:
         option = input('\n-> ')
 
-        if select(option) == 'exit':
+        if option == 'exit':
+            # safely kill live-server
+            print(f'{RED}[*] Do not forget to close your live-server{ENDC}')
             break
+        else:
+            select(option)
 
     print(f'{RED}[*]Program Closed{ENDC}')
 
