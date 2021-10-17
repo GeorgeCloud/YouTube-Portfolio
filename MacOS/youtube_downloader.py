@@ -33,7 +33,7 @@ def append_video_to_json(youtube_video, date=''):
 
     data['videos'].append({
         'file_name': file_name,
-        'file_path': f"./resources/my_videos/{''.join([c for c in file_name if c.isalpha() or c.isdigit() or c in '-()[]'])}.mp4",
+        'file_path': f"./resources/my_videos/{''.join([c for c in file_name if c.isalpha() or c.isdigit() or c in ' -()[]!'])}.mp4",
         'file_img_url': youtube_video.thumbnail_url, # make available offline | stretch
         # 'date': 'time_stamp',
     })
